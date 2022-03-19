@@ -1,4 +1,5 @@
 /target
-/model.pbmm
+/model.tflite
 /libstt.zip
 /*.so*
+scorer.scorer

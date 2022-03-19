@@ -1,10 +1,19 @@
 fn main() {
 	println!("cargo:rerun-if-changed=model.url");
+	println!("cargo:rerun-if-changed=scorer.url");
 	println!("cargo:rerun-if-changed=dist.url");
 	println!("cargo:rerun-if-changed=build.rs");
 	std::fs::write(
-		"./model.pbmm",
+		"./model.tflite",
 		reqwest::blocking::get(std::fs::read_to_string("model.url").unwrap())
+			.unwrap()
+			.bytes()
+			.unwrap(),
+	)
+	.unwrap();
+	std::fs::write(
+		"./scorer.scorer",
+		reqwest::blocking::get(std::fs::read_to_string("scorer.url").unwrap())
 			.unwrap()
 			.bytes()
 			.unwrap(),

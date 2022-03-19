@@ -1,4 +1,4 @@
-**you need to source libpath.sh otherwise it won't compile**
+**i'm not sure why but you need to source libpath.sh otherwise it won't compile**
 
 a program that translates english into animalese in real-time
 

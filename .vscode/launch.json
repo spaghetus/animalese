@@ -1,0 +1,101 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'animalese'",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--lib",
+					"--package=animalese"
+				],
+				"filter": {
+					"name": "animalese",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'hear'",
+			"cargo": {
+				"args": [
+					"build",
+					"--bin=hear",
+					"--package=animalese"
+				],
+				"filter": {
+					"name": "hear",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'hear'",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=hear",
+					"--package=animalese"
+				],
+				"filter": {
+					"name": "hear",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'talk'",
+			"cargo": {
+				"args": [
+					"build",
+					"--bin=talk",
+					"--package=animalese"
+				],
+				"filter": {
+					"name": "talk",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in executable 'talk'",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--bin=talk",
+					"--package=animalese"
+				],
+				"filter": {
+					"name": "talk",
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}
