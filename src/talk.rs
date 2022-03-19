@@ -1,4 +1,4 @@
-use std::io::BufRead;
+use std::io::{BufRead, Write};
 
 use include_dir::{include_dir, Dir};
 use rodio::{Decoder, OutputStream, OutputStreamHandle, Sink, Source};
@@ -14,7 +14,7 @@ impl Talker {
 			.unwrap_or("425".to_string())
 			.parse()
 			.expect("invalid voice offset");
-		eprintln!("Using voice: {}\nArranging voice sounds", voice);
+		eprintln!("Using voice offset: {}\nArranging voice sounds", voice);
 		let clips: Vec<(usize, Vec<u8>)> = VOICES
 			.files()
 			.map(|file| {
@@ -33,7 +33,9 @@ impl Talker {
 		Talker { clips: clips_ }
 	}
 	pub fn say(&self, c: char, stream_handle: &OutputStreamHandle) {
-		if !c.is_alphabetic() {
+		print!("{}", c);
+		std::io::stdout().flush().unwrap();
+		if !c.is_alphabetic() || c as isize - 'a' as isize > 26 {
 			return;
 		};
 		let c = c.to_lowercase().next().unwrap();
